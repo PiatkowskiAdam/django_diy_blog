@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p><b>Date:</b> {{ post.date }}</p>
+    <p><b>Written by:</b> <a href="{% url 'blogger_detail' post.author.pk %}">{{ post.author }}</a></p>
+
+    <section>{{ post.content|linebreaks }}</section>
+    <br>
+
+    <h3>Comments ({{ post.comment_set.count }})<br>
+        <a href="{% if user.is_authenticated %} {% url 'add_comment' post.pk %} {% else %} {% url 'login' %}?next={{request.path}} {% endif %}">Add Comment</a></h3>
+    
+    <section class="comment-section">
+        {% for comment in post.comment_set.all %}
+            <span class="comment">
+                <p><b>Date:</b> {{ comment.date }}</p>
+                <p><b>Title:</b> {{ comment.title }}</p>
+                <p><b>User:</b> <a href="{% url 'blogger_detail' comment.author.pk %}">{{ comment.author }}</a></p>
+                <p>{{ comment.content|linebreaks }}</p>
+            </span>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,91 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #e8f1f2;
+    font-size: 20px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.sidenav {
+    background-color: #111111;
+    min-width: 175px;
+    padding-top: 2rem;
+}
+
+.sidenav a {
+    padding: 0.3rem 1rem 0.3rem 1.5rem;
+    color: #fcdc4d;
+    display: block;
+    font-family: 'Langar', cursive;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.sidenav a:hover {
+    color: #e8f1f2;
+    transition: 0.75s color;
+}
+
+.main-content {
+    font-family: 'Open Sans', sans-serif;
+    color: #111111;
+    padding: 0 2rem
+}
+
+.main-content a {
+    color: #a44728;
+    text-decoration: none;
+}
+
+.main-content a:hover {
+    color: #52489c;
+    transition: 0.35s color;
+    text-decoration: underline;
+}
+
+.comment {
+    display: block;
+    line-height: 0.5;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+button {
+    display: block;
+    padding: 0.4rem 1.25rem;
+    border: 0.1rem solid #a44728;
+    border-radius: 0.4rem;
+    background-color: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a44728;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #a44728;
+    color: #e8f1f2;
+    cursor: pointer;
+}
+
+input {
+    height: 1.5rem;
+    display: block;
+    width: 100%;
+    padding: 0.3rem;
+    outline: none;  
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    outline: none;
+    padding: 0.3rem;
+}

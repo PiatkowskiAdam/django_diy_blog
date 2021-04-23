@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Our contributors</h1>
+    <p>Below, you'll find a list of all users who write for us:</p>
+
+    <ul>
+    {% for user in user_list %}
+        {% if user.post_set.all %}
+            <li><a href="{% url 'blogger_detail' user.pk %}">{{user}}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+
+
+
+{% endblock %}

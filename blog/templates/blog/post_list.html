@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h1>All Posts</h1>
+ <p>You can find the list of all posts below:</p>
+ 
+ <ul>
+ {% for post in post_list %}
+    <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> written by <a href="{% url 'blogger_detail' post.author.pk %}">{{ post.author }} </a> ({{ post.date }})</li>
+ {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{user.username}}</h1>
+
+
+    {% if user.post_set.all %}
+        <p>Articles written by {{user.username}}:</p>
+        <ul>
+            {% for post in user.post_set.all %}
+                <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>This user hasn't contributed any articles</p>
+    {% endif %}
+
+    {% if user.comment_set.all %}
+    <p>Comments written by {{user.username}}:</p>
+    <ul>
+        {% for comment in user.comment_set.all %}
+            <p><b>Post:</b> <a href="{% url 'post_detail' comment.post.pk %}"> {{ comment.post }} </a><br><b>Content: </b>{{ comment.content }}</p>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>This user hasn't written any comments</p>
+    {% endif %}
+
+
+{% endblock %}
